@@ -1,0 +1,1 @@
+Dailey's Recycling & Refuse ==> around Wellsville ==> house 1116 and 1121 ==> UMDCTF{Hillcrest Rd, Wellsville, OH 43968}

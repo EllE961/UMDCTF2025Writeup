@@ -1,0 +1,1 @@
+John Hunt Morgan Heritage Trail in Ohio Historical Marker ==> use https://www.hmdb.org/results.asp?Search=Series&SeriesID=364 ==> check all marker palces ==> Ohio, Guernsey County, Lore City — 41 — Lore City ==> UMDCTF{Main St, Lore City, OH 43755}
