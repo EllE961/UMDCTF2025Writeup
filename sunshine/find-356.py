@@ -3,12 +3,12 @@ import requests, sys
 
 BASE_URL = "https://scgis.summitoh.net/hosted/rest/services/AddressPoints_DBC/FeatureServer"
 
-print("🚀 find-356.py running…")
+print("find-356.py running…")
 
 def inspect_fields():
     url = f"{BASE_URL}/0"
     resp = requests.get(url, params={"f": "pjson"})
-    print("→ GET", resp.url)
+    print("GET", resp.url)
     print("  Status:", resp.status_code)
     print("  Content-Type:", resp.headers.get("Content-Type"))
     preview = resp.text.replace("\n"," ")[:200]
@@ -17,16 +17,16 @@ def inspect_fields():
     try:
         info = resp.json()
     except ValueError as e:
-        print("❌ JSON parse error:", e)
+        print("JSON parse error:", e)
         sys.exit(1)
 
     if "fields" not in info:
-        print("❌ No 'fields' key. Keys:", list(info.keys()))
+        print("No 'fields' key. Keys:", list(info.keys()))
         sys.exit(1)
 
-    print(f"✔ Found {len(info['fields'])} fields:")
+    print(f"Found {len(info['fields'])} fields:")
     for fld in info["fields"]:
-        print("  •", fld["name"], f"({fld['type']})")
+        print("  -", fld["name"], f"({fld['type']})")
     print()
 
 def fetch_356_addresses():
@@ -44,7 +44,7 @@ def fetch_356_addresses():
     data = resp.json()
 
     if "features" not in data:
-        print("❌ No 'features' key. Keys:", list(data.keys()))
+        print("No 'features' key. Keys:", list(data.keys()))
         sys.exit(1)
 
     def build_street(a):
@@ -63,7 +63,7 @@ def fetch_356_addresses():
         addr = f"{a['ADDR_NUM']} {street}, {a['CITY']}, {a['STATE']} {a['ZIP']}, USA"
         seen.add(addr)
 
-    print("🏠 356 addresses in Akron:")
+    print("356 addresses in Akron:")
     for addr in sorted(seen):
         print("  ", addr)
 
